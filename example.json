@@ -1,0 +1,665 @@
+{
+	"metadata": {},
+	"data": [
+		{
+			"type": "header",
+			"name": "File header",
+			"size": 20,
+			"size type": "byte",
+			"offset": 0,
+			"repeats": 1,
+			"condition": true,
+			"content": [
+				{
+					"type": "data",
+					"name": "File format ID",
+					"size": 1,
+					"size type": "byte",
+					"value type": "0x30",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Version",
+					"size": 1,
+					"size type": "byte",
+					"value type": 6,
+					"comment": "only 6 is known"
+				},
+				{
+					"type": "data",
+					"name": "File flag",
+					"size": 1,
+					"size type": "byte",
+					"value type": "boolean",
+					"comment": "always 0, crashes when set to 1"
+				},
+				{
+					"type": "data",
+					"name": "Number of textures",
+					"size": 1,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Relative pointer to textures list",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Number of objects",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Relative pointer to objects list",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Relative pointer to object order",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				}
+			]
+		},
+		{
+			"type": "header",
+			"name": "Textures list",
+			"size": 24,
+			"size type": "byte",
+			"offset": "Relative pointer to textures list",
+			"repeats": "Number of textures",
+			"condition": true,
+			"content": [
+				{
+					"type": "data",
+					"name": "Texture name",
+					"size": 8,
+					"size type": "byte",
+					"value type": "string",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Undocumented texture properties",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unknown",
+					"comment": "looks like always 0"
+				},
+				{
+					"type": "data",
+					"name": "Undocumented texture properties",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unknown",
+					"comment": "looks like always 0"
+				},
+				{
+					"type": "data",
+					"name": "Undocumented texture properties",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unknown",
+					"comment": "looks like always 0"
+				},
+				{
+					"type": "data",
+					"name": "Undocumented texture properties",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unknown",
+					"comment": "looks like always 0"
+				}
+			]
+		},
+		{
+			"type": "header",
+			"name": "Objects list",
+			"size": 16,
+			"size type": "byte",
+			"offset": "Relative pointer to objects list",
+			"repeats": "Number of objects",
+			"condition": true,
+			"content": [
+				{
+					"type": "data",
+					"name": "Object name",
+					"size": 8,
+					"size type": "byte",
+					"value type": "string",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Number of meshes",
+					"size": 1,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Vertex shift",
+					"size": 1,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Normals shift",
+					"size": 1,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Shading rendering mode",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Unknown object render properties",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Unknown object render properties",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Unknown object render properties",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Unknown object render properties",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Transparency rendering mode",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Unknown object render properties",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Unknown object render properties",
+					"size": 1,
+					"size type": "bit",
+					"value type": "boolean",
+					"comment": null
+				},
+				{
+					"type": "data",
+					"name": "Relative pointer to object data",
+					"size": 4,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": null
+				}
+			]
+		},
+		{
+			"type": "header",
+			"name": "Objects order",
+			"size": 1,
+			"size type": "byte",
+			"offset": "Relative pointer to object order",
+			"repeats": "Number of objects",
+			"condition": true,
+			"content": [
+				{
+					"type": "data",
+					"name": "Object number",
+					"size": 1,
+					"size type": "byte",
+					"value type": "unsigned integer",
+					"comment": "starting from 0"
+				}
+			]
+		},
+		{
+			"type": "header",
+			"name": "Object data",
+			"size": "unknown",
+			"size type": "byte",
+			"offset": "Relative pointer to object data",
+			"repeats": "Number of objects",
+			"condition": true,
+			"content": [
+				{
+					"type": "header",
+					"name": "Object's mesh header",
+					"size": "24",
+					"size type": "byte",
+					"offset": "Relative pointer to object data",
+					"repeats": "Number of meshes",
+					"condition": true,
+					"content": [
+						{
+							"type": "data",
+							"name": "Number of primitives",
+							"size": 1,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Number of vertices",
+							"size": 1,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Number of normals",
+							"size": 1,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Number of unknown",
+							"size": 1,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Relative pointer to primitives",
+							"size": 4,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Relative pointer to XY vertices",
+							"size": 4,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Relative pointer to Z vertices",
+							"size": 4,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Relative pointer to normals",
+							"size": 4,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						},
+						{
+							"type": "data",
+							"name": "Relative pointer to unknown",
+							"size": 4,
+							"size type": "byte",
+							"value type": "unsigned integer",
+							"comment": null
+						}
+					]
+				},
+				{
+					"type": "header",
+					"name": "Object's mesh data",
+					"size": "unknown",
+					"size type": "byte",
+					"offset": "Relative pointer to primitives",
+					"repeats": "Number of meshes",
+					"condition": true,
+					"content": [
+						{
+							"type": "header",
+							"name": "Object's mesh's primitives",
+							"size": "20",
+							"size type": "byte",
+							"offset": "Relative pointer to primitives",
+							"repeats": "Number of primitives",
+							"condition": true,
+							"content": [
+								{
+									"type": "data",
+									"name": "Texture's U1 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Texture's V1 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "X coordinate of CLUT in VRAM?",
+									"size": 6,
+									"size type": "bit",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "X coordinate of CLUT in VRAM?",
+									"size": 9,
+									"size type": "bit",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Unknown",
+									"size": 1,
+									"size type": "bit",
+									"value type": "boolean",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Texture's U2 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Texture's V2 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Unknown",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unknown",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Used texture number",
+									"size": 7,
+									"size type": "bit",
+									"value type": "unsigned integer",
+									"comment": "starting from 0"
+								},
+								{
+									"type": "data",
+									"name": "Texture's semi-transparency mode",
+									"size": 1,
+									"size type": "bit",
+									"value type": "boolean",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Texture's U3 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Texture's V3 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Texture's U4 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": "only in strips, otherwise 0"
+								},
+								{
+									"type": "data",
+									"name": "Texture's V4 coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": "only in strips, otherwise 0"
+								},
+								{
+									"type": "data",
+									"name": "Face's 1st index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Face's 2nd index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Face's 3rd index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Face's 4th index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": "only in strips, otherwise 0"
+								},
+								{
+									"type": "data",
+									"name": "Unknown index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Unknown index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Unknown index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Unknown index",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								}
+							]
+						},
+						{
+							"type": "header",
+							"name": "Object's mesh's XY vertices",
+							"size": "4",
+							"size type": "byte",
+							"offset": "Relative pointer to XY vertices",
+							"repeats": "Number of vertices",
+							"condition": true,
+							"content": [
+								{
+									"type": "data",
+									"name": "Mesh's vertex X coordinate",
+									"size": 2,
+									"size type": "byte",
+									"value type": "signed integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Mesh's vertex Y coordinate",
+									"size": 2,
+									"size type": "byte",
+									"value type": "signed integer",
+									"comment": null
+								}
+							]
+						},
+						{
+							"type": "header",
+							"name": "Object's mesh's Z vertices",
+							"size": "2",
+							"size type": "byte",
+							"offset": "Relative pointer to Z vertices",
+							"repeats": "Number of vertices",
+							"condition": true,
+							"content": [
+								{
+									"type": "data",
+									"name": "Mesh's vertex Z coordinate",
+									"size": 2,
+									"size type": "byte",
+									"value type": "signed integer",
+									"comment": null
+								}
+							]
+						},
+						{
+							"type": "header",
+							"name": "Object's mesh's normals",
+							"size": "2",
+							"size type": "byte",
+							"offset": "Relative pointer to normals",
+							"repeats": "Number of normals",
+							"condition": true,
+							"content": [
+								{
+									"type": "data",
+									"name": "Mesh's normal vertex I coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "signed integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Mesh's normal vertex J coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "signed integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Mesh's normal vertex K coordinate",
+									"size": 1,
+									"size type": "byte",
+									"value type": "signed integer",
+									"comment": null
+								},
+								{
+									"type": "data",
+									"name": "Number of time used?",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								}
+							]
+						},
+						{
+							"type": "header",
+							"name": "Object's mesh's unknown",
+							"size": "1",
+							"size type": "byte",
+							"offset": "Relative pointer to unknown",
+							"repeats": "Number of unknown",
+							"condition": true,
+							"content": [
+								{
+									"type": "data",
+									"name": "Unknown index?",
+									"size": 1,
+									"size type": "byte",
+									"value type": "unsigned integer",
+									"comment": null
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
