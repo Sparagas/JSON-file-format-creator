@@ -1,4 +1,8 @@
 import json
+import os
+
+# change current working directory to file directory name
+os.chdir(os.path.dirname(__file__))
 
 # default items
 json_default = {'metadata': [{}],
@@ -103,11 +107,11 @@ print()
 def compare_values():
     real_values = json_file['data']
     for r_value in real_values:
-        #print(r_value['name'])
+        # print(r_value['name'])
         # every real value type and default values list
         for item in r_value:
             found = False
-            #print(item)
+            # print(item)
             # every default value in single key
             for d_value in header_default[item]:
                 # if it founds it - exit local loop
@@ -118,15 +122,15 @@ def compare_values():
                 elif r_value[item] == d_value:
                     found = True
             if found:
-                #print('found')
+                # print('found')
                 pass
             else:
-                #print('not found')
+                # print('not found')
                 pass
-            #print()
+            # print()
             if type(r_value[item]) == list:
                 pass
-                #print('got it')
+                # print('got it')
 
 
 def value_loop(item):
